@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promosi Aplikasi Agenda Surat Digital</title>
+
+	<link rel="icon" type="image/png" href="favicon.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <style>
+        .hero-section { background: linear-gradient(135deg, #0d6efd, #0a58ca); color: white; padding: 80px 0; }
+        .feature-icon { font-size: 2.5rem; color: #0d6efd; margin-bottom: 15px; }
+        .price-tag { font-size: 3rem; font-weight: 800; color: #198754; }
+		
+        /* Gaya Bingkai iMac AIO - Desktop */
+        .imac-frame { max-width: 900px; margin: 0 auto; position: relative; }
+        .imac-monitor { background: linear-gradient(to bottom, #f0f0f0, #d9d9d9); padding: 25px 25px 70px 25px; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; z-index: 10; }
+        .imac-screen-inner { background-color: #000; padding: 12px; border-radius: 8px; overflow: hidden; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+        .imac-screen-inner .carousel-inner { border-radius: 4px; }
+        .imac-stand-container { display: flex; flex-direction: column; align-items: center; margin-top: -30px; position: relative; z-index: 1; }
+        .imac-stand-neck { width: 160px; height: 80px; background: linear-gradient(to right, #bfbfbf, #e0e0e0, #bfbfbf); clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1); }
+        .imac-stand-base { width: 240px; height: 14px; background: linear-gradient(to bottom, #e0e0e0, #cccccc); border-radius: 2px 2px 10px 10px; box-shadow: 0 15px 25px rgba(0,0,0,0.2); }
+
+        /* OPTIMASI TAMPILAN MOBILE (HP Friendly) */
+        @media (max-width: 768px) {
+            .hero-section { padding: 50px 0; }
+            .price-tag { font-size: 2.5rem; }
+            .imac-monitor { padding: 12px 12px 35px 12px; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+            .imac-screen-inner { padding: 5px; border-radius: 6px; }
+            .imac-stand-container { margin-top: -15px; }
+            .imac-stand-neck { width: 100px; height: 40px; }
+            .imac-stand-base { width: 150px; height: 8px; border-radius: 2px 2px 6px 6px; }
+        }
+        
+        /* Modifikasi untuk Accordion FAQ */
+        .accordion-button:not(.collapsed) { background-color: #e7f1ff; color: #0d6efd; font-weight: bold; }
+        .accordion-button:focus { box-shadow: none; border-color: rgba(0,0,0,.125); }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section text-center">
+        <div class="container px-4">
+            <h1 class="display-5 fw-bold mb-3">Tinggalkan Tumpukan Kertas. Beralih ke Pengarsipan Digital.</h1>
+            <p class="lead mb-4">Solusi tata usaha persuratan sekolah yang praktis, cepat, dan mendukung penuh percepatan SPBE. Tanpa instalasi, langsung pakai!</p>
+            
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a href="https://ujicoba.regsurat.my.id" target="_blank" class="btn btn-light btn-lg fw-bold text-primary px-4">
+                    <i class="fas fa-laptop-code me-2"></i>Coba Demo Gratis
+                </a>
+                <a href="https://wa.me/6285158096633" target="_blank" class="btn btn-outline-light btn-lg fw-bold px-4">
+                    <i class="fab fa-whatsapp me-2"></i>Hubungi Pengembang
+                </a>
+            </div>
+        </div>
+    </header>
+
+	<section id="fitur" class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <h4 class="fw-bold">Langsung Pakai</h4>
+                        <p class="text-muted">Bukan <i>source code</i> mentah. Tidak perlu instal database, XAMPP, atau pengaturan IT yang rumit. Cukup buka tautan di browser.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <i class="fas fa-eye feature-icon"></i>
+                        <h4 class="fw-bold">Pratinjau Cepat</h4>
+                        <p class="text-muted">Cari arsip surat bertahun-tahun lalu dalam hitungan detik. Baca dokumen langsung di layar tanpa perlu <i>download</i> file.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <i class="fas fa-sitemap feature-icon"></i>
+                        <h4 class="fw-bold">Pendamping Srikandi</h4>
+                        <p class="text-muted">Solusi jembatan untuk mendigitalkan surat manual dan WA sebelum diintegrasikan sepenuhnya ke sistem pusat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section id="tampilan" class="py-5">
+        <div class="container px-3 px-md-0">
+            <h3 class="fw-bold mb-4 text-center">Intip Tampilan Aplikasi</h3>
+            <p class="text-center text-muted mb-5">Antarmuka yang bersih, intuitif, dan mudah digunakan oleh siapa saja.</p>
+            
+            <div class="imac-frame">
+                <div class="imac-monitor">
+                    <div class="imac-screen-inner">
+                        <div id="carouselAplikasi" class="carousel slide" data-bs-ride="carousel" data-bs-theme="dark">
+                            <div class="carousel-indicators mb-1">
+                                <button type="button" data-bs-target="#carouselAplikasi" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                                <button type="button" data-bs-target="#carouselAplikasi" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselAplikasi" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carouselAplikasi" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#carouselAplikasi" data-bs-slide-to="4"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="2500">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOUjK8pCsS1IJAmKi1wX11vMBFKwgSO2QgTUyO4WcM19n62tUXr4hajS8hwZcgf604a5I_B9AY3mH1FboGmgYtSw_d2lt6i_2SAS51pVAwdaewVv1a3iL3jKSdg7oRtd5xq5s20NcUmv_NaxQb-sg9c=w1086-h615-s-no-gm?authuser=0" class="d-block w-100" alt="Beranda Aplikasi">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2500">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMH3dVdmeWSl1kW1S6EcH5gSO-YfnXC4aiHHbjmytGPYbn3-aa8gQnacVS9AXWwBxY1LvHkx0JJ-trzHl-tZfzan5NmdNqfhXhbhR7SdbmQU2cEsGtryhWUKX57EI4P8S8yrZtpISwMBlyuAPbGAcR3=w1087-h614-s-no-gm?authuser=0" class="d-block w-100" alt="Fitur Pencarian Arsip">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2500">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMHRfbjynQiTQlczE2ZUA2A3hzw-t2OsniaHXXdv0TDM0VA_mrvsAnO6KkJzKKZJumXjJvvbCfeO-mo4VZFYwxuvbpAk1Zn8w_9QJCoAKdAO0OzcGm7DeGtp7NMftQ7x4XqDNmf1UvG0du5uF8xqvt1=w1087-h614-s-no-gm?authuser=0" class="d-block w-100" alt="Pratinjau Dokumen">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2500">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO4pkTDrHhV3cnOHX7Xii7fK_YknbM-uxck7s2Dv9Smax4Qj4SgwyxvEjeH5Xuc_NFEFP5pNhkYYohh5FiGh8spNABANwcKaCDdLDYxJTHThrwwhU0naH9gWrkFIZu0PhKa-WwYMf2i9-F5cZp7zPzJ=w1087-h614-s-no-gm?authuser=0" class="d-block w-100" alt="Manajemen Surat Keluar">
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2500">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOSMFMS86GsbsYx_hifJA1Q-enhwQLh1pHAIock1pR6AMMgJIkkn9p5hB3PQD-CIAC5ma40hzJtYfFdU4GmSrSxIERhcEgfB1alkqojk7ahsbzfFXdQeQkKDRJ-D34haVegGBAquC_lFDwSNyNhGrUZ=w1087-h614-s-no-gm?authuser=0" class="d-block w-100" alt="Pengaturan Pengguna">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAplikasi" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Sebelumnya</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselAplikasi" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Selanjutnya</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="imac-stand-container">
+                    <div class="imac-stand-neck"></div>
+                    <div class="imac-stand-base"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="harga" class="py-5 text-center">
+        <div class="container px-4">
+            <h3 class="fw-bold mb-4">Investasi Cerdas untuk Sekolah Anda</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card border-primary shadow p-4 p-md-5">
+                        <h4 class="fw-bold text-uppercase text-primary mb-3">Harga Promo Spesial</h4>
+                        <h2 class="price-tag mb-3">Rp 250.000</h2>
+                        <div class="bg-light p-3 rounded mb-4 text-start">
+                            <p class="text-dark mb-2 fw-bold"><i class="fas fa-check-circle text-success me-2"></i>Sekali bayar (bersih) untuk lifetime!</p>
+                            <p class="text-dark mb-2 fw-bold"><i class="fas fa-check-circle text-success me-2"></i>Perpanjangan (tahunan) gratis!</p>
+                            <p class="text-dark mb-0 fw-bold"><i class="fas fa-check-circle text-success me-2"></i>Ruang penyimpanan (cloud) gratis!</p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg fw-bold w-100" data-bs-toggle="modal" data-bs-target="#modalPesan">
+                            <i class="fas fa-shopping-cart me-2"></i>Pesan Sekarang
+                        </button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<section id="faq" class="py-5 bg-white">
+        <div class="container px-4">
+            <h3 class="fw-bold mb-4 text-center">Pertanyaan yang Sering Diajukan (FAQ)</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion shadow-sm" id="accordionFAQ">
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Apakah aplikasinya berat dan sulit digunakan?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Sama sekali tidak. Aplikasi ini dirancang agar ringan, intuitif, dan mudah dipahami. Anda bisa menjalankannya di PC/laptop, tablet, maupun <i>smartphone</i> (HP). Aplikasi ini berbasis web sehingga dapat diakses kapan saja dan di mana saja selama ada koneksi internet.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Apakah ada biaya langganan bulanan atau tahunan?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Tidak ada. Ini adalah investasi sekali bayar untuk penggunaan seumur hidup (<i>lifetime</i>). Anda terbebas dari biaya perpanjangan tahunan dan biaya sewa ruang penyimpanan (<i>cloud</i>).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Kenapa di marketplace ada yang menjual lebih murah?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Di <i>marketplace</i> mungkin ada yang menawarkan harga lebih murah, tetapi biasanya itu hanya berupa <i>source code</i> mentah. Anda harus melakukan <i>setting</i> sendiri, menyewa domain/hosting, menyediakan ruang penyimpanan sendiri, hingga menginstal <i>software</i> pendukung seperti XAMPP. Sedangkan aplikasi kami adalah solusi <strong>terima beres dan siap pakai</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Apakah User dan Jenis Surat bisa ditambah sendiri?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Bisa. Manajemen pengguna (User) dan klasifikasi Jenis Surat dapat Anda kelola sepenuhnya—seperti ditambah, diubah, atau dihapus—oleh Kepala Sekolah, Tata Usaha, atau Operator Sekolah sesuai kebutuhan.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Apakah aplikasi ini menggantikan aplikasi SRIKANDI pemerintah?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Tidak. Aplikasi ini justru hadir sebagai jembatan dan sistem <i>backup</i> mandiri untuk sekolah Anda. Sistem ini merapikan semua arsip surat dari SRIKANDI, surat yang masuk secara manual (kertas fisik), maupun surat koordinasi yang masuk melalui WhatsApp dalam satu tempat yang tertata.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Berapa lama aplikasi selesai dikerjakan setelah pemesanan?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Proses penyiapan aplikasi (termasuk pemasangan logo dan nama sekolah Anda) memakan waktu 2 x 24 jam setelah pesanan kami terima, menyesuaikan dengan nomor urut antrean.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Jika kesulitan, apakah boleh meminta bantuan atau pendampingan?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body text-muted">
+                                    Boleh banget! Kami tidak akan lepas tangan setelah aplikasi diserahkan. Jika Anda atau tim Tata Usaha mengalami kendala, bantuan dan pendampingan penggunaan aplikasi akan kami jadwalkan dan berikan secara gratis.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light text-center">
+        <div class="container px-4">
+            <h3 class="fw-bold mb-4">Masih Ragu atau Punya Pertanyaan?</h3>
+            <p class="mb-4">Dapatkan konsultasi implementasi untuk sekolah Anda hari ini.</p>
+            <a href="https://wa.me/6285158096633" target="_blank" class="btn btn-success btn-lg"><i class="fab fa-whatsapp me-2"></i>Chat via WhatsApp</a>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-0 small px-3">© 2026 Dikembangkan oleh ASN Belajar | Mendukung Transformasi Digital Pendidikan</p>
+    </footer>
+
+    <div class="modal fade" id="modalPesan" tabindex="-1" aria-labelledby="modalPesanLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold fs-6 fs-md-5" id="modalPesanLabel"><i class="fas fa-clipboard-list me-2"></i>Form Pemesanan Aplikasi</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 p-md-4">
+                    <form id="formPemesanan">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small"><i class="fas fa-user me-1"></i> Nama Pemesan</label>
+                                <input type="text" class="form-control bg-light" id="namaPemesan" required placeholder="Cth: FULAN, S.Pd.">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small"><i class="fas fa-school me-1"></i> Nama Sekolah</label>
+                                <input type="text" class="form-control bg-light" id="namaSekolah" required placeholder="Cth: SDN HARAPAN BARU">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-muted small"><i class="fas fa-map-marker-alt me-1"></i> Alamat Sekolah</label>
+                            <textarea class="form-control bg-light" id="alamatSekolah" rows="2" placeholder="Alamat lengkap/resmi" required></textarea>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small"><i class="fas fa-envelope me-1"></i> Email Aktif</label>
+                                <input type="email" class="form-control bg-light" id="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold text-muted small"><i class="fas fa-phone-alt me-1"></i> Nomor HP/WA</label>
+                                <input type="number" class="form-control bg-light" id="noWa" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 p-3 border rounded bg-light">
+                            <label class="form-label fw-bold text-muted small mb-2"><i class="fas fa-image me-1"></i> Logo Sekolah (Opsional, Maks. 2 MB)</label>
+                            <input class="form-control form-control-sm" type="file" id="logoSekolah" accept="image/png, image/jpeg">
+                            
+                            <div class="progress mt-2 d-none" id="uploadProgressContainer" style="height: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" id="uploadProgressBar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            
+                            <div id="uploadStatus" class="small mt-2 text-success fw-bold d-none">
+                                <i class="fas fa-check-circle"></i> File logo berhasil disiapkan.
+                            </div>
+                            <div id="fileError" class="text-danger mt-2 fw-bold" style="display:none; font-size:0.8rem;">
+                                <i class="fas fa-exclamation-triangle"></i> Ukuran file melebihi 2 MB!
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg fw-bold" id="btnSubmit">
+                                <i class="fas fa-paper-plane me-2" id="iconSubmit"></i>
+                                <span id="btnText">Kirim Data Pemesanan</span>
+                                <span id="btnLoading" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        let base64LogoData = '';
+        let logoMimeType = '';
+        let logoFilename = '';
+
+        const fileInput = document.getElementById('logoSekolah');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            const fileError = document.getElementById('fileError');
+            const progressContainer = document.getElementById('uploadProgressContainer');
+            const progressBar = document.getElementById('uploadProgressBar');
+            const uploadStatus = document.getElementById('uploadStatus');
+
+            base64LogoData = '';
+            logoMimeType = '';
+            logoFilename = '';
+            fileError.style.display = 'none';
+            uploadStatus.classList.add('d-none');
+            progressContainer.classList.add('d-none');
+            progressBar.style.width = '0%';
+            btnSubmit.disabled = false;
+
+            if (!file) return; 
+
+            if (file.size > 2097152) {
+                fileError.style.display = 'block';
+                this.value = ''; 
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            progressContainer.classList.remove('d-none');
+
+            const reader = new FileReader();
+
+            reader.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    const percentLoaded = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentLoaded + '%';
+                }
+            };
+
+            reader.onload = function() {
+                base64LogoData = reader.result.split(',')[1];
+                logoMimeType = file.type;
+                logoFilename = file.name;
+                
+                progressBar.style.width = '100%';
+                
+                setTimeout(() => {
+                    progressContainer.classList.add('d-none');
+                    uploadStatus.classList.remove('d-none');
+                    btnSubmit.disabled = false; 
+                }, 600); 
+            };
+
+            reader.onerror = function() {
+                Swal.fire({ icon: 'error', title: 'Error!', text: 'Gagal memproses file gambar.' });
+                btnSubmit.disabled = false;
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('formPemesanan').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const btnText = document.getElementById('btnText');
+            const btnLoading = document.getElementById('btnLoading');
+            const iconSubmit = document.getElementById('iconSubmit');
+            
+            btnSubmit.disabled = true;
+            btnText.innerText = 'Memproses... ';
+            btnLoading.classList.remove('d-none');
+            iconSubmit.classList.add('d-none');
+            
+            const payload = {
+                namaPemesan: document.getElementById('namaPemesan').value,
+                namaSekolah: document.getElementById('namaSekolah').value,
+                alamatSekolah: document.getElementById('alamatSekolah').value,
+                email: document.getElementById('email').value,
+                noWa: document.getElementById('noWa').value,
+                logoBase64: base64LogoData, 
+                logoMimeType: logoMimeType,
+                logoFilename: logoFilename
+            };
+
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwYz4-lwyC7B-TxG5muz4r5hucnVl0LNnV1SxoOcMdgBDAwzp0k1woZybs8LDYpTvdU/exec';
+
+            try {
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                
+                if(result.status === 'success'){
+                    // Notifikasi Sukses Diperbarui Sesuai Permintaan
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pemesanan Berhasil!',
+                        html: `Terima kasih! Pesanan Anda telah diterima. Aplikasi akan kami kerjakan dalam 2 x 24 jam, sesuai antrian. Kami akan menghubungi Anda melalui WA setelah aplikasi siap digunakan.<br><br><b>ID Anda: ${result.orderId}</b>`,
+                        confirmButtonText: 'Tutup',
+                        confirmButtonColor: '#198754'
+                    });
+
+                    document.getElementById('formPemesanan').reset();
+                    base64LogoData = '';
+                    document.getElementById('uploadStatus').classList.add('d-none');
+                    bootstrap.Modal.getInstance(document.getElementById('modalPesan')).hide();
+
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal Menyimpan!',
+                        text: result.message,
+                        confirmButtonColor: '#dc3545'
+                    });
+                }
+            } catch (error) {
+                console.error('Fetch Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Kesalahan Jaringan',
+                    text: 'Terjadi kesalahan saat mengirim pesanan. Silakan coba lagi.',
+                    confirmButtonColor: '#dc3545'
+                });
+            } finally {
+                btnSubmit.disabled = false;
+                btnText.innerText = 'Kirim Data Pemesanan';
+                btnLoading.classList.add('d-none');
+                iconSubmit.classList.remove('d-none');
+            }
+        });
+    </script>
+</body>
+</html>
